@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import API from '../../../api/axios.ts';
 import './ArticleDetails.css';
-import type {Article} from "../../../types/article/Article.ts";
+import type { Article } from "../../../types/article/Article.ts";
 import type { Comment } from '../../../types/comment/Comment.ts';
+import type { ArticleInteractionStatus } from "../../../types/interaction/ArticleInteractionStatus.ts";
+import type { ArticleInteractionStats } from "../../../types/interaction/ArticleInteractionStats.ts";
 
 
 const ArticleDetails = () => {
@@ -22,16 +24,16 @@ const ArticleDetails = () => {
     const emojiMap: Record<InteractionType, string> = {
         liked: '❤️',
         saved: '💾',
-        shared: '📤',
+        shared: '🔗',
         report: '🚫'
     };
-    const [userInteraction, setUserInteraction] = useState(article?.current_user_interaction || {
+    const [userInteraction, setUserInteraction] = useState<ArticleInteractionStatus>(article?.current_user_interaction || {
         liked: false,
         saved: false,
         shared: false,
         report: false
     });
-    const [interactionCount, setInteractionCount] = useState(article?.total_user_interaction || {
+    const [interactionCount, setInteractionCount] = useState<ArticleInteractionStats>(article?.total_user_interaction || {
         liked: 0,
         saved: 0,
         shared: 0,
@@ -42,8 +44,17 @@ const ArticleDetails = () => {
 
     // Fetch the article details using the provided id
     useEffect(() => {
-        API.get<{Article}>(`/article/${id}`)
-            .then((res) => setArticle(res.data))
+        API.get<Article>(`/article/${id}`)
+            .then((res) => {
+                const article = res.data;
+                setArticle(article);
+                if(article.current_user_interaction) {
+                    setUserInteraction(article.current_user_interaction);
+                }
+                if(article.total_user_interaction) {
+                    setInteractionCount(article.total_user_interaction);
+                }
+            })
             .catch((error) => {
                 console.error('Error fetching article details:', error);
             })
@@ -86,13 +97,22 @@ const ArticleDetails = () => {
             await API.post(`/article/${id}/interaction`, {
                 type,
                 value: newValue
+            }).then((res) => {
+                const result = res.data;
+                if (result) {
+                    if(result?.success) {
+                        setUserInteraction((prev) => ({ ...prev, [type]: newValue }));
+                        setInteractionCount((prev) => ({
+                            ...prev,
+                            [type]: prev[type] + (newValue ? 1 : -1)
+                        }));
+                    } else {
+                        console.error(`Interaction failed: ${type}`, result?.message);
+                    }
+                }
             });
 
-            setUserInteraction((prev) => ({ ...prev, [type]: newValue }));
-            setInteractionCount((prev) => ({
-                ...prev,
-                [type]: prev[type] + (newValue ? 1 : -1)
-            }));
+
         } catch (err) {
             console.error(`Interaction failed: ${type}`, err);
         } finally {
@@ -134,10 +154,14 @@ const ArticleDetails = () => {
         }
     };
 
+    const handleBack = () => {
+        navigate(-1);
+    }
+
     return (
         <div className="article">
             <div className="article-details-container">
-                <button className="back-button" onClick={() => navigate(-1)}>
+                <button className="back-button" onClick={() => handleBack()}>
                     ← Back
                 </button>
                 <div className="article-header">

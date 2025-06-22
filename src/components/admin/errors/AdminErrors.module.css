@@ -1,0 +1,105 @@
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.errorCard {
+    background-color: var(--background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.errorHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.errorDetails {
+    margin-bottom: 0.5rem;
+}
+
+.stack {
+    font-family: monospace;
+    background-color: var(--card-bg);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.curl {
+    font-family: monospace;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    white-space: pre-wrap; /* Allow line wrapping */
+    word-break: break-word; /* Break long tokens */
+    overflow-wrap: anywhere;
+    border: 1px solid var(--divider);
+    margin: 0.5rem 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.deleteBtn {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+.deleteBtn:hover {
+    background-color: #c62828;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.pagination button:disabled {
+    background-color: var(--disabled-bg);
+    cursor: not-allowed;
+}
+

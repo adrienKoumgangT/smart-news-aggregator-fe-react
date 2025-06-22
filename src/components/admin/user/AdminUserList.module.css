@@ -1,0 +1,104 @@
+
+.admin-user-list {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.admin-user-list h2 {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.user-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.user-card {
+    background-color: var(--background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.user-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.user-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.user-card p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination-controls button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pagination-controls button:disabled {
+    background-color: var(--disabled-bg);
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.pageBtn {
+    padding: 0.4rem 1rem;
+    border: none;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.pageBtn:disabled {
+    background-color: var(--disabled-bg);
+    cursor: not-allowed;
+}
+
+.pageInfo {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}

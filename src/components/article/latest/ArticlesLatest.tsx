@@ -2,26 +2,29 @@ import { useEffect, useState } from 'react';
 import API from '../../../api/axios.ts';
 import type { ArticleSummary } from '../../../types/article/ArticleSummary.ts';
 import './ArticlesLatest.css';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const limit = 5;
 
 const ArticlesLatest = () => {
     const [articles, setArticles] = useState<ArticleSummary[]>([]);
+    // const [searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(1);
+    const [total, setTotal] = useState(0);
     const [isLastPage, setIsLastPage] = useState(false);
 
+    const limit = 5;
+
     const fetchArticles = async (pageNum: number) => {
-        try {
-            const res = await API.get<{ articles: ArticleSummary[] }>(
-                `/article/latest?limit=${limit}&page=${pageNum}`
-            );
+        await API.get<{ articles: ArticleSummary[], page: number, limit: number, pageCount: number, total: number }>(
+            `/article/latest?limit=${limit}&page=${pageNum}`
+        ).then(res => {
             const data = res.data.articles;
             setArticles(data);
+            setTotal(res.data.total);
             setIsLastPage(data.length < limit);
-        } catch (error) {
-            console.error(error);
-        }
+        }).catch(err => {
+            console.error('Error fetching article details:', err);
+        });
     };
 
     useEffect(() => {
@@ -37,6 +40,8 @@ const ArticlesLatest = () => {
             day: 'numeric',
         });
     };
+
+    const totalPages = Math.ceil(total / limit);
 
     return (
         <div className="articles-latest-container">
@@ -84,8 +89,8 @@ const ArticlesLatest = () => {
                 <button onClick={() => setPage((p) => Math.max(p - 1, 1))} disabled={page === 1}>
                     ← Previous
                 </button>
-                <span>Page {page}</span>
-                <button onClick={() => setPage((p) => p + 1)} disabled={isLastPage}>
+                <span>Page {page} of {totalPages}</span>
+                <button onClick={() => {setPage((p) => p + 1)}} disabled={isLastPage}>
                     Next →
                 </button>
             </div>

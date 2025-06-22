@@ -1,0 +1,18 @@
+
+.title {
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.menuItem {
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.menuItem:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.avatarButton {
+    padding: 0;
+}

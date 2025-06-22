@@ -1,0 +1,94 @@
+
+.history-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.history-container h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+}
+
+.history-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.history-item a:hover {
+    text-decoration: underline;
+}
+
+.article-interactions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.interaction-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    border-radius: 8px;
+    cursor: default;
+    transition: all 0.2s ease-in-out;
+    background-color: #f0f0f0;
+    color: #555;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+}
+
+.interaction-btn:hover {
+    transform: scale(1.1);
+}
+
+.interaction-btn.active {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+}
+
+
+.pagination {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pagination button {
+    padding: 6px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}

@@ -1,4 +1,4 @@
 export interface Account {
     status: string;
-    roles: string;
+    role: string;
 }

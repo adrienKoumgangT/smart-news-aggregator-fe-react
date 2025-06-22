@@ -1,0 +1,67 @@
+
+/* Light Theme Variables */
+:root {
+    --color-bg: #ffffff;
+    --color-text: #1a1a1a;
+    --color-accent: #007bff;
+    --color-accent-hover: #0056b3;
+    --color-border: #dddddd;
+    --color-card-bg: #f9f9f9;
+    --color-muted-text: #555555;
+    --color-button-bg: var(--color-accent);
+    --color-button-text: #ffffff;
+    --color-nav-bg: #f8f9fa;
+    --color-nav-text: #1a1a1a;
+    --color-nav-hover: #e2e6ea;
+
+    --background: #fff;
+    --text-primary: #222;
+    --text-secondary: #444;
+    --text-muted: #777;
+    --accent: #0077ff;
+    --border-radius: 8px;
+    --card-bg: #f9f9f9;
+    --card-border: #e0e0e0;
+    --button-bg: #0077ff;
+    --button-text: white;
+    --hover-bg: #eaeaea;
+    --interaction-bg: #f5f5f5;
+    --interaction-active-bg: #e0f7fa;
+    --interaction-active-color: #0077cc;
+    --tag-bg: #eee;
+    --tag-color: #555;
+    --divider: #eee;
+    --disabled-bg: #999;
+}
+
+/* Dark Theme Override */
+:root[data-theme='dark'] {
+    --color-bg: #121212;
+    --color-text: #f0f0f0;
+    --color-accent: #1e90ff;
+    --color-accent-hover: #63a4ff;
+    --color-border: #2c2c2c;
+    --color-card-bg: #1e1e1e;
+    --color-muted-text: #aaaaaa;
+    --color-button-bg: var(--color-accent);
+    --color-button-text: #ffffff;
+    --color-nav-bg: #1f1f1f;
+    --color-nav-text: #f0f0f0;
+    --color-nav-hover: #2a2a2a;
+
+    --background: #121212;
+    --text-primary: #f1f1f1;
+    --text-secondary: #ccc;
+    --text-muted: #999;
+    --accent: #00bcd4;
+    --interaction-bg: #333;
+    --interaction-active-bg: #004d60;
+    --interaction-active-color: #00e5ff;
+    --card-bg: #1e1e1e;
+    --card-border: #333;
+    --tag-bg: #555;
+    --tag-color: #eee;
+    --divider: #333;
+    --button-bg: #00bcd4;
+    --button-text: white;
+}

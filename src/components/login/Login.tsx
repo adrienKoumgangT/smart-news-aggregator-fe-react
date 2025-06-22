@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import API from '../../api/axios.ts';
-
+import styles from './Login.module.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {
@@ -17,25 +16,18 @@ const Login = () => {
                 { email, password },
                 {
                     withCredentials: true,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+                    headers: { 'Content-Type': 'application/json' },
                 }
             );
 
-            // Access Authorization header (case-insensitive in Axios)
             const authHeader: string | undefined = response.headers['authorization'] || response.headers['Authorization'];
-            // console.log(authHeader);
+
             if (authHeader && authHeader.startsWith('Bearer ')) {
                 const token = authHeader.split(' ')[1];
                 localStorage.setItem('authToken', token);
-                // alert('Logged in!');
-
                 navigate('/latest');
             } else {
-                console.error('Login failed:', 'Authorization token not found in response headers');
-                // alert('Authorization token not found in response headers');
-                alert('Login failed');
+                alert('Login failed: token missing.');
             }
         } catch (err) {
             console.error('Login error:', err);
@@ -43,24 +35,38 @@ const Login = () => {
         }
     };
 
+    const goToRegister = () => {
+        navigate('/register');
+    };
+
     return (
-        <form onSubmit={handleLogin}>
-            <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                type="email"
-                required
-            />
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                required
-            />
-            <button type="submit">Login</button>
-        </form>
+        <div className={styles.container}>
+            <h2 className={styles.title}>Login to Your Account</h2>
+            <form onSubmit={handleLogin} className={styles.form}>
+                <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                    type="email"
+                    required
+                />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                    required
+                />
+                <button type="submit" className={styles.loginButton}>Login</button>
+            </form>
+
+            <div className={styles.footer}>
+                <span>Don't have an account?</span>
+                <button onClick={goToRegister} className={styles.registerButton}>
+                    Register
+                </button>
+            </div>
+        </div>
     );
 };
 

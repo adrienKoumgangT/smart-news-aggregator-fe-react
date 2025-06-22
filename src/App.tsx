@@ -14,6 +14,7 @@ import AdminUserDetails from "./components/admin/user/AdminUserDetails.tsx";
 import AdminArticles from "./components/admin/article/AdminArticles.tsx";
 import AdminDashboard from "./components/admin/dashboard/AdminDashboard.tsx";
 import AdminErrors from "./components/admin/errors/AdminErrors.tsx";
+import Register from "./components/register/Register.tsx";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Navigate to="/latest" />} />
                 <Route path="/test" element={<TestPage />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/settings" element={<Settings />} />

@@ -15,6 +15,7 @@ import AdminArticles from "./components/admin/article/AdminArticles.tsx";
 import AdminDashboard from "./components/admin/dashboard/AdminDashboard.tsx";
 import AdminErrors from "./components/admin/errors/AdminErrors.tsx";
 import Register from "./components/register/Register.tsx";
+import LoginAlt from "./components/login/LoginAlt.tsx";
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
     return (
         <BrowserRouter>
             {/* Global Navigation Bar (hidden on login page) */}
-            {window.location.pathname !== '/login' && <NavBar />}
+            {window.location.pathname !== '/login' && window.location.pathname !== '/login-alt' && window.location.pathname !== '/register' && <NavBar />}
 
             {/* Main App Routes */}
             <Routes>
@@ -37,6 +38,7 @@ function App() {
                 <Route path="/test" element={<TestPage />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/login-alt" element={<LoginAlt />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/latest" element={<ArticlesLatest />} />

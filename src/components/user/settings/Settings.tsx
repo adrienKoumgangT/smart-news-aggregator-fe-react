@@ -109,6 +109,8 @@ const Settings = () => {
                 <button className="save-btn" onClick={handleSearch}>Search</button>
             </div>
 
+            {!loading && (<button className="save-btn" onClick={handleSave}>Save Preferences</button>)}
+
             {loading && <div className="loader">Loading...</div>}
 
             <div className="tags-list">
@@ -122,8 +124,6 @@ const Settings = () => {
                     </button>
                 ))}
             </div>
-
-            <button className="save-btn" onClick={handleSave}>Save Preferences</button>
         </div>
     );
 };

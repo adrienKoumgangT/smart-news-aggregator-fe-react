@@ -8,6 +8,18 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+.back-button {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.back-button:hover {
+    text-decoration: underline;
+}
+
 .title {
     font-size: 1.8rem;
     font-weight: bold;

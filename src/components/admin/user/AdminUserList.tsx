@@ -12,6 +12,10 @@ const AdminUserList: React.FC = () => {
     const [total, setTotal] = useState(0);
     const navigate = useNavigate();
 
+    const handleBack = () => {
+        navigate(-1);
+    }
+
     const limit = 5;
 
     // const userLocale = navigator.language || 'en-GB';
@@ -45,6 +49,9 @@ const AdminUserList: React.FC = () => {
 
     return (
         <div className={styles.container}>
+            <button className="back-button" onClick={() => handleBack()}>
+                ← Back
+            </button>
             <h2>Admin – User Management</h2>
             <div className={styles.tableWrapper}>
                 <table className={styles.userTable}>

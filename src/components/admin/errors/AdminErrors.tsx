@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './AdminErrors.module.css';
 import API from '../../../api/axios';
 import type {ServerErrorLog} from "../../../types/server/ServerErrorLog.ts";
@@ -9,6 +10,12 @@ const AdminErrors = () => {
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    }
 
     const limit = 10;
 
@@ -44,6 +51,9 @@ const AdminErrors = () => {
 
     return (
         <div className={styles.container}>
+            <button className="back-button" onClick={() => handleBack()}>
+                ← Back
+            </button>
             <h2>Admin - Error Logs</h2>
             {loading ? (
                 <p>Loading...</p>

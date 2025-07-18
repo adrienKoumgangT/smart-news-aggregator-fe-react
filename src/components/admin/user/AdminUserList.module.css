@@ -14,6 +14,18 @@
     margin-bottom: 1.5rem;
 }
 
+.back-button {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.back-button:hover {
+    text-decoration: underline;
+}
+
 .user-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

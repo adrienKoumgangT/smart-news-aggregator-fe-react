@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './AdminArticles.module.css';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import API from "../../../api/axios.ts";
 import './AdminArticles.module.css'
 import type {ArticleSummary} from "../../../types/article/ArticleSummary.ts";
@@ -11,7 +11,11 @@ const AdminArticles = () => {
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
     const limit = 10;
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    }
 
     const fetchArticles = async (currentPage: number) => {
         await API.get<{articles: ArticleSummary[], page: number, limit: number, pageCount: number, total: number}>(`/admin/articles?limit=${limit}&page=${currentPage}`)
@@ -46,6 +50,9 @@ const AdminArticles = () => {
 
     return (
         <div className={styles.container}>
+            <button className="back-button" onClick={() => handleBack()}>
+                ← Back
+            </button>
             <h2>Admin – Article Management</h2>
             <div className={styles.tableWrapper}>
                 <table className={styles.articleTable}>

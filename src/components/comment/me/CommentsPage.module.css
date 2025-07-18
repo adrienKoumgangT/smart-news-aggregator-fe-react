@@ -1,0 +1,108 @@
+.container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+.empty {
+    text-align: center;
+    color: #777;
+}
+
+.commentList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.commentItem {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.articleMeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ← This centers children horizontally */
+    text-align: center;   /* ← This ensures text itself is centered */
+    margin-bottom: 8px;
+}
+
+.articleTitle {
+    background: none;
+    border: none;
+    color: #1e88e5;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.articleTitle:hover {
+    text-decoration: underline;
+    color: #1565c0;
+}
+
+.articleDate,
+.articleSource {
+    font-size: 0.9rem;
+    color: #888;
+    margin-right: 1rem;
+}
+
+.commentText {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+.pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background-color: #0077ff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.deleteButton {
+    margin-top: 0.5rem;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+    background-color: #d9363e;
+}
+

@@ -16,6 +16,8 @@ import AdminDashboard from "./components/admin/dashboard/AdminDashboard.tsx";
 import AdminErrors from "./components/admin/errors/AdminErrors.tsx";
 import Register from "./components/register/Register.tsx";
 import LoginAlt from "./components/login/LoginAlt.tsx";
+import ArticleSearch from "./components/article/search/ArticleSearch.tsx";
+import CommentsPage from "./components/comment/me/CommentsPage.tsx";
 
 
 function App() {
@@ -42,8 +44,10 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/latest" element={<ArticlesLatest />} />
+                <Route path="/search" element={<ArticleSearch />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/article/:id" element={<ArticleDetails />} />
+                <Route path="/comments" element={<CommentsPage />} />
 
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="/admin/users" element={<AdminUserList />} />

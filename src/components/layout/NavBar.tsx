@@ -73,8 +73,14 @@ const NavBar = () => {
             case 'Latest':
                 navigate('/latest');
                 break;
+            case 'Search':
+                navigate('/search');
+                break;
             case 'History':
                 navigate('/history');
+                break;
+            case 'Comment':
+                navigate('/comments');
                 break;
             case 'Settings':
                 navigate('/settings');
@@ -116,7 +122,7 @@ const NavBar = () => {
                                 {'Dashboard'}
                             </MenuItem>
                         )}
-                        {['Profile', 'Settings', 'Latest', 'History', 'Logout'].map((item) => (
+                        {['Profile', 'Settings', 'Latest', 'Search', 'History', 'Comment', 'Logout'].map((item) => (
                             <MenuItem key={item} onClick={() => handleMenuClick(item)} className={styles.menuItem}>
                                 {item}
                             </MenuItem>

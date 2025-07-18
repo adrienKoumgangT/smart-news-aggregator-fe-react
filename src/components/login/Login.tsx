@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import API from '../../api/axios.ts';
 import styles from './Login.module.css';
 
@@ -58,6 +58,12 @@ const Login = () => {
                     required
                 />
                 <button type="submit" className={styles.loginButton}>Login</button>
+
+                <div className={styles.forgotPasswordWrapper}>
+                    <Link to="/login-alt" className={styles.forgotPasswordLink}>
+                        Forgot Password?
+                    </Link>
+                </div>
             </form>
 
             <div className={styles.footer}>

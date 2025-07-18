@@ -76,9 +76,6 @@ const ArticlesLatest = () => {
                                 {a.source?.name && (
                                     <span className="article-source"> {a.source.name} </span>
                                 )}
-                                <Link to={`/article/${a.article_id}`} className="read-more-btn">
-                                    Read more →
-                                </Link>
                             </div>
                         </div>
                     ))}
